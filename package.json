@@ -2,13 +2,13 @@
   "name": "shortener",
   "version": "0.0.1",
   "description": "url shortener",
-  "homepage": "https://github.com/enorsu/shortP#readme",
+  "homepage": "https://github.com/enorsu/shortener#readme",
   "bugs": {
-    "url": "https://github.com/enorsu/shortP/issues"
+    "url": "https://github.com/enorsu/shortener/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enorsu/shortP.git"
+    "url": "git+https://github.com/enorsu/shortener.git"
   },
   "license": "ISC",
   "author": "enorsu",
