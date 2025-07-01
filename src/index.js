@@ -37,9 +37,14 @@ const generateRandomString = (myLength) => {
 function addNewUrl(url) {
     let file = editJsonFile(`./data/shortened.json`);
     let randomshort = generateRandomString(4)
+
+    
+
     file.append(randomshort, url)
     file.save()
     return randomshort
+    
+
 }
 
 function getShortened(string) {
@@ -51,8 +56,9 @@ function getShortened(string) {
             "url": url
         }
     } catch(err) {
+        
         return {
-            "exists": False
+            "exists": false
         }
     }
 
@@ -82,9 +88,7 @@ app.post('/api/newurl', (req, res) => {
     const url = req.body.url
     if (isValidUrl(url)) {
         const short = addNewUrl(url)
-        res.render("valid", {"e":
-            {"a":short
-            }})
+        res.render("valid", { "url": short })
 
     } else {
         return res.redirect("/invalid/")

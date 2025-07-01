@@ -5,16 +5,20 @@
             
         </title>
         <link rel="stylesheet" href="/invalid/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     </head>
     <body>
         
         <div class="container">
-            <h2>Your shortened link is:
-            <% if (e.a) { %>
-                <a id="a" href="/<%=e.a %>"><%=e.a %></a>
+            
+            <% if (URL) { %>
+                <h2>Your shortened link is:
+                <a id="a" href="/<%=url %>"><%=url %></a>
             <% } %>
             </h2>
             <br>
+            <p>if there is no url, that indicates that your url did not go through at all</p>
             <a class="back" href="/">shorten another</a>
         </div>
     </body>
