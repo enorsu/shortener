@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <link rel="stylesheet" href="/invalid/styles.css">
+    </head>
+    <body>
+        
+        <div class="container">
+            <h2>Your shortened link is:
+            <% if (e.a) { %>
+                <a id="a" href="/<%=e.a %>"><%=e.a %></a>
+            <% } %>
+            </h2>
+            <br>
+            <a class="back" href="/">shorten another</a>
+        </div>
+    </body>
+</html>

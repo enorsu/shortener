@@ -1,0 +1,27 @@
+{
+  "name": "shortp",
+  "version": "0.0.1",
+  "description": "url shortener",
+  "homepage": "https://github.com/enorsu/shortP#readme",
+  "bugs": {
+    "url": "https://github.com/enorsu/shortP/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enorsu/shortP.git"
+  },
+  "license": "ISC",
+  "author": "enorsu",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "edit-json-file": "^1.8.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
