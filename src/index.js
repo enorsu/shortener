@@ -17,8 +17,16 @@ app.use(express.urlencoded({
 function isValidUrl(string) {
   try {
     new URL(string);
-    return true;
+    return string
   } catch (err) {
+    try {
+        string = "https://" + string
+        new URL(string)
+        return string
+    } catch(err) {
+        return false
+    }
+
     return false
   }
 }
@@ -88,8 +96,9 @@ app.get('/:short', (req, res) => {
 
 app.post('/shortener/newurl', (req, res) => {
     const url = req.body.url
-    if (isValidUrl(url)) {
-        const short = addNewUrl(url)
+    let validate = isValidUrl(url)
+    if (validate) {
+        const short = addNewUrl(validate)
         
         return res.render("valid", { "url": short })
 
