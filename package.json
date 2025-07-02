@@ -17,7 +17,7 @@
   "scripts": {
     "start": "nodemon built/index.js",
     "compile": "tsc",
-    "r": "tsc && nodemon built/index.js"
+    "fullstart": "tsc && nodemon built/index.js"
   },
   "dependencies": {
     "edit-json-file": "^1.8.1",
