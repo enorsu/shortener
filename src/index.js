@@ -6,6 +6,7 @@ const editJsonFile = require("edit-json-file")
 const app = express()
 const port = 80
 const data = "./data/shortened.json"
+const index = "/shortener/"
 
 app.set('view engine', 'ejs');
 app.use(express.static("./public"))
@@ -65,33 +66,35 @@ function getShortened(string) {
 }
 
 app.get("/", (req, res) => {
-    return res.redirect("/index/")
+    return res.redirect(index)
 })
 
 app.get('/:short', (req, res) => {
     
     if (req.params.short) {
         let check = getShortened(req.params.short)
-        if (check.exists) {
-            return res.redirect(check.url)
+        if (check.url == undefined) {
+            return res.redirect("/404/")
         } else {
-            return res.redirect("/invalid/")
+            
+            return res.redirect(check.url)
         }
 
     } else {
-            return res.redirect("/index/")
+            return res.redirect(index)
         }
     }
 )
 
-app.post('/api/newurl', (req, res) => {
+app.post('/shortener/newurl', (req, res) => {
     const url = req.body.url
     if (isValidUrl(url)) {
         const short = addNewUrl(url)
-        res.render("valid", { "url": short })
+        
+        return res.render("valid", { "url": short })
 
     } else {
-        return res.redirect("/invalid/")
+        return res.redirect("/shortener/invalid/")
     }
 })
 
