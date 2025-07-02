@@ -1,18 +1,10 @@
-const express = require('express')
-const fs = require('fs')
-const ejs = require("ejs")
-const editJsonFile = require("edit-json-file")
 
-const app = express()
-const port = 80
+import express = require("express")
+import editJsonFile = require("edit-json-file")
+const router = express.Router()
+
 const data = "./data/shortened.json"
 const index = "/shortener/"
-
-app.set('view engine', 'ejs');
-app.use(express.static("./public"))
-app.use(express.urlencoded({
-    extended: true
-})) 
 
 function getAllLinks() {
     let file = editJsonFile(data)
@@ -54,7 +46,7 @@ function addNewUrl(url) {
 
     
 
-    file.append(randomshort, url)
+    file.routerend(randomshort, url)
     file.save()
     return randomshort
     
@@ -78,17 +70,13 @@ function getShortened(string) {
 
 }
 
-app.get("/", (req, res) => {
-    return res.redirect(index)
-})
-
-app.get("/list", (req, res) => {
+router.get("/shortener/list", (req, res) => {
     return res.render("list", {
         "list": getAllLinks()
     })
 })
 
-app.get('/:short', (req, res) => {
+router.get('/:short', (req, res) => {
     
     if (req.params.short) {
         let check = getShortened(req.params.short)
@@ -105,7 +93,7 @@ app.get('/:short', (req, res) => {
     }
 )
 
-app.post('/shortener/newurl', (req, res) => {
+router.post('/shortener/newurl', (req, res) => {
     const url = req.body.url
     let validate = isValidUrl(url)
     if (validate) {
@@ -118,8 +106,4 @@ app.post('/shortener/newurl', (req, res) => {
     }
 })
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`)
-})
-
-
+module.exports = router
