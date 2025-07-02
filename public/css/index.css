@@ -1,0 +1,39 @@
+
+body {
+    background-color: #54f9e1;
+    padding-top: 10%;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button {
+    cursor: pointer;
+    border: solid 2px black;
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-top: 10px;
+    background-color: white;
+    transition-duration: 200ms;
+}
+.button:hover {
+    transition-duration: 200ms;
+    background-color: #adadadc2;
+}
+
+.input {
+    border: solid 2px black;
+    border-radius: 6px;
+    transition-duration: 200ms;
+    outline: none;
+}
+.input:focus {
+    transition-duration: 200ms;
+    background-color: rgba(255, 255, 255, 0.89)
+}
+
+.author {
+    display: flex;
+    justify-content: center;
+    
+}

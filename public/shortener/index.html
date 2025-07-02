@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>shortener</title>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         
@@ -11,10 +11,13 @@
         <h1>simple url shortener</h1>
         <form action="/shortener/newurl", method="post">
             <label for="url">URL:</label>
-            <input id="url" name="url">
+            <input id="url" name="url" class="input" maxlength="200" size="43">
             <br>
-            <br>
-            <button type="submit">submit</button>
+            
+            <button type="submit" class="button">shorten!</button>
         </form>
+    <div class="author">
+        <p>made by <a href="https://github.com/enorsu">enorsu</a></p>
+    </div>
     </body>
 </html>

@@ -1,0 +1,20 @@
+
+body {
+    background-color: #80e7d8;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.short {
+    color: black;
+    text-decoration: none;
+}
+.short:hover {
+    text-decoration:line-through;
+}
+
+.link {
+    color: darkblue;
+    cursor: default;
+}

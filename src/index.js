@@ -14,6 +14,11 @@ app.use(express.urlencoded({
     extended: true
 })) 
 
+function getAllLinks() {
+    let file = editJsonFile(data)
+    return file.get()
+}
+
 function isValidUrl(string) {
   try {
     new URL(string);
@@ -75,6 +80,12 @@ function getShortened(string) {
 
 app.get("/", (req, res) => {
     return res.redirect(index)
+})
+
+app.get("/list", (req, res) => {
+    return res.render("list", {
+        "list": getAllLinks()
+    })
 })
 
 app.get('/:short', (req, res) => {

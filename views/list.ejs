@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <link rel="stylesheet" href="/css/list.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    </head>
+    <body>
+        
+        <div class="container">
+            
+            <% if (list) { %>
+                <% for (const key in list) { %>
+                    <p>
+                        <a href="/<%=key %>" class="short">
+                            <%=key %>
+
+                        </a>
+                        :
+                        <a href="<%=list[key] %>" class="link">
+                            <%=list[key] %>
+                        </a>
+                        
+                    </p>
+                <% } %>
+            <% } %>
+            </h2>
+            <a class="back" href="/">back</a>
+        </div>
+    </body>
+</html>
