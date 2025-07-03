@@ -35,7 +35,7 @@ var generateRandomString = function (myLength) {
 function addNewUrl(url) {
     var file = editJsonFile("./data/shortened.json");
     var randomshort = generateRandomString(4);
-    file.routerend(randomshort, url);
+    file.append(randomshort, url);
     file.save();
     return randomshort;
 }
@@ -54,11 +54,6 @@ function getShortened(string) {
         };
     }
 }
-router.get("/shortener/list", function (req, res) {
-    return res.render("list", {
-        "list": getAllLinks()
-    });
-});
 router.get('/:short', function (req, res) {
     if (req.params.short) {
         var check = getShortened(req.params.short);
@@ -70,8 +65,13 @@ router.get('/:short', function (req, res) {
         }
     }
     else {
-        return res.redirect(index);
+        return res.redirect("/");
     }
+});
+router.get("/shortener/list", function (req, res) {
+    return res.render("list", {
+        "list": getAllLinks()
+    });
 });
 router.post('/shortener/newurl', function (req, res) {
     var url = req.body.url;

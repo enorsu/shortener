@@ -46,14 +46,13 @@ function addNewUrl(url) {
 
     
 
-    file.routerend(randomshort, url)
+    file.append(randomshort, url)
     file.save()
     return randomshort
     
 
 }
-
-function getShortened(string) {
+function getShortened(string: string) {
     let file = editJsonFile(data)
     try {
         let url = file.get(string)
@@ -70,15 +69,10 @@ function getShortened(string) {
 
 }
 
-router.get("/shortener/list", (req, res) => {
-    return res.render("list", {
-        "list": getAllLinks()
-    })
-})
-
 router.get('/:short', (req, res) => {
     
     if (req.params.short) {
+      
         let check = getShortened(req.params.short)
         if (check.url == undefined) {
             return res.redirect("/404/")
@@ -88,10 +82,18 @@ router.get('/:short', (req, res) => {
         }
 
     } else {
-            return res.redirect(index)
+            return res.redirect("/")
         }
     }
 )
+
+
+router.get("/shortener/list", (req, res) => {
+    return res.render("list", {
+        "list": getAllLinks()
+    })
+})
+
 
 router.post('/shortener/newurl', (req, res) => {
     const url = req.body.url

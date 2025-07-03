@@ -10,7 +10,7 @@ app.use(express.urlencoded({
 }));
 app.use("/", require("./shortener"));
 app.get("/", function (req, res) {
-    return res.redirect("/index/");
+    return res.redirect("/shortener/");
 });
 app.listen(port, function () {
     console.log("listening on port ".concat(port));
