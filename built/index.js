@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var app = express();
-var port = 80;
+var port = 4000;
 app.set('view engine', 'ejs');
 app.use(express.static("./public"));
 app.use(express.urlencoded({

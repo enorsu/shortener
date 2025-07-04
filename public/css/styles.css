@@ -10,4 +10,17 @@ body{
 
 .button {
     cursor: pointer;
-}   
+}  
+.button {
+    cursor: pointer;
+    border: solid 2px black;
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-top: 10px;
+    background-color: white;
+    transition-duration: 200ms;
+}
+.button:hover {
+    transition-duration: 200ms;
+    background-color: #adadadc2;
+}

@@ -15,12 +15,14 @@
             
             <% if (URL) { %>
                 <h2>Your shortened link is:
-                <a id="a" href="/<%=url %>"><%=url %></a>
+                <a id="a" href="/<%=url %>"><%=url %></a><br>
+                <button id="copy" data-a="<%=url %>" class="button">(Click to copy)</button>
             <% } %>
             </h2>
             <br>
             <p>if there is no url, that indicates that your url did not go through at all</p>
             <a class="back" href="/">shorten another</a>
+            <script src="/js/copy.js"></script>
         </div>
     </body>
 </html>
