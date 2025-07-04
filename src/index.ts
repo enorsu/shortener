@@ -3,7 +3,7 @@ import fs = require('fs');
 import shortener = require("./shortener")
 
 const app = express()
-const port = 4000
+const port = 80
 
 
 app.set('view engine', 'ejs');
